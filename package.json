@@ -1,9 +1,10 @@
 {
   "name": "task-management-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "helmet": "^8.2.0",
     "mongoose": "^9.6.3",
     "redis": "^6.0.0",
+    "uuid": "^14.0.0",
     "winston": "^3.19.0"
   },
   "devDependencies": {

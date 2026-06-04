@@ -3,13 +3,13 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 
-const connectDB = require("./config/db");
-const rateLimiter = require("./middleware/rateLimiter");
-const errorHandler = require("./middleware/errorHandler");
-const logger = require("./utils/logger");
+const connectDB = require("./src/config/db");
+const rateLimiter = require("./src/middleware/rateLimiter");
+const errorHandler = require("./src/middleware/errorHandler");
+const logger = require("./src/utils/logger");
 
-const authRoutes = require("./routes/authRoutes");
-const taskRoutes = require("./routes/taskRoutes");
+const authRoutes = require("./src/routes/authRoutes");
+const taskRoutes = require("./src/routes/taskRoutes");
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 app.get(
   "/api/analytics",
-  require("./controllers/analyticsController").getAnalytics,
+  require("./src/controllers/analyticsController").getAnalytics,
 );
 
 // Health Check

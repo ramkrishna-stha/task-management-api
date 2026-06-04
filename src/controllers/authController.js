@@ -4,6 +4,8 @@ const User = require("../models/User");
 const redisService = require("../services/redisService");
 const logger = require("../utils/logger");
 
+const id = uuidv4();
+
 exports.register = async (req, res, next) => {
   try {
     const { fullName, email, password } = req.body;
@@ -11,12 +13,10 @@ exports.register = async (req, res, next) => {
     // Check if user exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "User with this email already exists",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "User with this email already exists",
+      });
     }
 
     // Hash password
